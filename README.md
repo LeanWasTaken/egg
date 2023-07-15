@@ -10,7 +10,7 @@ node index.js
 make sure to rename .env.example to .env and fill it out beforehand.
 
 ## How to set up the "DB"
-Create a data.json file and put this in
+Create a data.json file in the same dir as index.js and put this in:
 
 ```json
 {
