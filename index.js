@@ -11,6 +11,7 @@ let eggStreak = 0;
 let lastUser = '';
 let lastContent = '';
 
+// Load data from data.json
 const loadData = () => {
   try {
     const data = fs.readFileSync(dataFile);
@@ -32,11 +33,13 @@ const saveData = () => {
   });
 };
 
+// Logs current user to console
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
   loadData();
 });
 
+// main stuff
 client.on(Events.MessageCreate, (message) => {
   if (message.channel.id === channelId && !message.author.bot) {
     const content = message.content.toLowerCase();
@@ -56,6 +59,7 @@ client.on(Events.MessageCreate, (message) => {
     lastContent = content;
 
     saveData();
+
     message.channel.setTopic(`Current egg streak: ${eggStreak}`)
     console.log(`Current egg count: ${eggStreak}\nLast egger: ${lastUser}`)
     console.log(`Data Saved!`)
