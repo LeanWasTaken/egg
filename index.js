@@ -34,7 +34,7 @@ const saveData = () => {
 };
 
 // Logs current user to console
-client.on('ready', () => {
+client.on(Events.ClientReady, () => {
   console.log(`Logged in as ${client.user.tag}`);
   loadData();
 });
